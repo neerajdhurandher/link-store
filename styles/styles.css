@@ -1,0 +1,271 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #1e1e1e;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    padding: 1rem;
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+header.visible {
+    transform: translateY(0);
+}
+
+header .logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.add-link-btn {
+    height: 40px;
+    width: 130px;
+    margin-left: auto;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background: transparent;
+    color: transparent;
+    border: none;
+    cursor: auto;
+    flex-shrink: 0;
+}
+
+.add-link-btn:hover {
+    transform: scale(1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.project-card {
+    background: #c55b5b;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    max-width: 70vw;
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+
+.project-card.expanded {
+    background: #a81919;
+    box-shadow: -0px -0px 32px 15px rgba(252, 243, 243, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    max-width: 80vw;
+}
+
+.project-card .main-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h2 {
+        color: #ffffff;
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+
+    p {
+        color: #ffffff;
+        margin: 0;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+.project-info {
+    flex: 1;
+    padding-right: 8px;
+
+}
+
+.project-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button.open {
+    background: var(--primary-color);
+    color: #000000;
+    border: 1.5px solid #000000;
+}
+
+button.github {
+    color: #fff;
+    background: #272626;
+    border: 1.5px solid #ffffff;
+}
+
+button.more {
+    background: #fce042;
+    color: #fff;
+    display: none;
+    border: 1.5px solid #000000;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #383737;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer.hidden {
+    transform: translateY(100%);
+}
+
+footer.visible {
+    transform: translateY(0);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #005bb5;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 100;
+    transition: ease-in-out 0.3s;
+}
+
+
+@media (max-width: 600px) {
+    header h1 {
+        margin-left: -15%;
+    }
+
+    .add-link-btn {
+        display: none;
+    }
+
+    .projects-list {
+        padding: 1rem;
+        max-width: 80vw;
+        padding-bottom: 100px;
+    }
+
+    .project-card .main-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: start;
+        justify-content: center;
+        padding: 1rem;
+        padding-bottom: 0px;
+    }
+
+    .project-card .project-actions {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
