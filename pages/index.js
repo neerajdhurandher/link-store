@@ -11,6 +11,7 @@ export default function Home() {
   const [isFooterVisible, setIsFooterVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
   const fetchData = async () => {
     let data = await fetchProjects();
@@ -53,7 +54,7 @@ export default function Home() {
       <header className={`header ${isHeaderVisible ? "visible" : "hidden"}`}>
         <img
           className="logo"
-          src="neeraj-logo.png"
+          src={`${basePath}/neeraj-logo.png`}
           alt="Logo"
           onClick={() => window.open('https://neerajdhurandher.me', '_blank')}
         />
